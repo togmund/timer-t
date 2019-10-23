@@ -17,8 +17,21 @@ const nodeArgs = process.argv.slice(2).filter(elm => parseInt(elm));
 
 const beeper = (beeps) => {
   for (const beep of beeps) {
-    setTimeout(() => { process.stdout.write('\x07'); }, beep * 1000);
+    setTimeout(() => {
+      process.stdout.write('\x07');
+    }, beep * 1000);
   }
-}
+};
 
 beeper(nodeArgs);
+
+stdin.on('data', (data) => {
+  if (data === '\u0003') {
+    process.exit();
+  }
+  if (data) {
+    setTimeout(() => {
+      console.log(something)
+    }, data);
+  }
+});
