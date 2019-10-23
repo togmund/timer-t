@@ -74,9 +74,9 @@ stdin.on('data', (data) => {
     beeper([0]);
   }
   if (0 < parseInt(data) < 10 && !Number.isNaN(parseInt(data))) {
+    console.log(`\rsetting timer for ${data} seconds...`);
     beeper([data]);
     spinnerCaller(spinner2, data);
-    console.log(`setting timer for ${data} seconds...`);
   }
 });
 
